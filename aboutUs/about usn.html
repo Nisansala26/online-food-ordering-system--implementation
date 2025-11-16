@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ceylon Aroma - About Us</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        /* General Styles */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f5f5f5; /* Light grey background for the main content */
+            color: #333;
+        }
+
+        /* Header (Navigation Bar) - Consistent Styling */
+        .header {
+            background-color: #1a1a1a;
+            color: white;
+            padding: 10px 50px; 
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            font-size: 1.5em;
+            font-weight: bold;
+            color: #ff9900; 
+        }
+
+        .logo img {
+             
+            width: 100px;
+            margin-right: 10px;
+            margin-top: 5px;
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            margin-left: 25px;
+            padding-bottom: 5px;
+            font-size: 1.1em;
+            transition: border-bottom 0.3s;
+        }
+
+        .nav-links a:hover {
+            border-bottom: 2px solid #ff9900;
+        }
+
+        /* Highlight the active link */
+        .nav-links .about-link {
+            border-bottom: 2px solid white; 
+            font-weight: bold;
+        }
+
+        .login-btn {
+            background-color: #ff9900;
+            color: #1a1a1a;
+            border: none;
+            padding: 8px 20px;
+            margin-left: 25px;
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 3px;
+        }
+
+        /* Title Section - Consistent Styling */
+        .title-section {
+            background-color: #1a1a1a;
+            color: #ff9900;
+            text-align: center;
+            padding: 30px 0; 
+        }
+
+        .title-section h1 {
+            margin: 0;
+            font-size: 3em;
+            font-weight: normal;
+        }
+
+        /* About Content Section */
+        .about-content {
+            max-width: 1200px;
+            margin: 50px auto;
+            padding: 0 50px;
+        }
+
+        /* Section Headings */
+        .about-content h2 {
+            font-size: 2em;
+            color: #1a1a1a;
+            margin-bottom: 20px;
+            font-weight: bold;
+        }
+
+        /* Subheadings (Overview, Our History, Our Team) */
+        .about-content h3 {
+            font-size: 1.8em;
+            color: #1a1a1a;
+            margin-top: 0;
+            margin-bottom: 15px;
+            font-weight: 600; 
+        }
+
+        /* Layout for sections with text and images */
+        .section-block {
+            display: flex;
+            align-items: flex-start;
+            gap: 50px;
+            margin-bottom: 60px;
+        }
+
+        .section-block.reversed {
+            flex-direction: row-reverse;
+        }
+
+        .text-content {
+            flex: 1;
+        }
+
+        .image-gallery {
+            flex: 1;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 10px;
+            max-width: 500px; 
+        }
+
+        .image-gallery img,
+        .single-image img {
+            width: 100%;
+            height: auto;
+            border-radius: 5px;
+            object-fit: cover;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        
+        /* Single Image Layouts */
+        .single-image {
+            flex: 1;
+            max-width: 500px;
+        }
+        
+        .single-image.wide {
+            max-width: 100%;
+        }
+
+        /* Text Styling */
+        .text-content p {
+            line-height: 1.6;
+            margin-bottom: 20px;
+            font-size: 1.05em;
+            color: #555;
+        }
+
+        /* Footer - Consistent Styling */
+        .footer {
+            background-color: #ff9900;
+            padding: 20px 50px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: #1a1a1a;
+            font-weight: bold;
+        }
+
+        .social-icons a {
+            color: #1a1a1a;
+            font-size: 1.5em;
+            margin-left: 15px;
+            text-decoration: none;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 1000px) {
+            .section-block, .section-block.reversed {
+                flex-direction: column;
+                align-items: center;
+                gap: 30px;
+            }
+
+            .image-gallery, .single-image {
+                max-width: 100%; 
+                width: 100%;
+            }
+            
+            .image-gallery {
+                grid-template-columns: 1fr 1fr; 
+            }
+            
+            .about-content {
+                padding: 0 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header class="header">
+        <div class="logo">
+            <img src="icon ca.png" alt="Ceylon Aroma Logo"> 
+            
+        </div>
+        <nav class="nav-links">
+            <a href="#">Home</a>
+            <a href="#">Menu</a>
+            <a href="#" class="about-link">About</a>
+            <a href="#">Contact</a>
+            <a href="#" class="login-btn">Login</a>
+        </nav>
+    </header>
+
+    <div class="title-section">
+        <h1>About Us</h1>
+    </div>
+
+    <div class="about-content">
+        
+        <div class="section-block">
+            <div class="text-content">
+                <h3>Overview</h3>
+                <p>Welcome to Ceylon Aroma, your trusted online food ordering platform. We're dedicated to providing a convenient and delicious dining experience right to your doorstep. We prepare and serve daily from 6:00 AM to 12:00 PM, serving freshly prepared meals with care and ease. We are proud of our *quick delivery service* and *flexible payment methods*. Our mission is simple: helping you eat smart and healthy while enjoying the rich flavors of Sri Lankan cuisine.</p>
+            </div>
+            <div class="image-gallery">
+                <img src="meal1.jpg" alt="A collection of cooked meals">
+                <img src="meal2.jpeg" alt="Close-up of Sri Lankan curry">
+                <img src="meal3.jpeg" alt="Dining table with multiple dishes">
+                <img src="meal4.jpeg" alt="Chef plating food">
+            </div>
+        </div>
+        
+        <div class="section-block reversed">
+            <div class="text-content">
+                <h3>Our History</h3>
+                <p>Ceylon Aroma began its flavorful journey 10 years ago with a simple goal — bring authentic Sri Lankan taste to everyone's table. Starting as a small family-run eatery, we have now grown into a well-known food brand that values quality, freshness, and customer satisfaction above all else. Our commitment to authentic recipes and innovation has helped us build a strong reputation in the culinary world.</p>
+            </div>
+            <div class="single-image">
+                <img src="inside.jpg" alt="Interior view of a modern restaurant">
+            </div>
+        </div>
+
+        <div class="section-block">
+            <div class="text-content">
+                <h3>Our Team</h3>
+                <p>Behind every delicious meal is a passionate and skilled team. Our *four professional chef groups* craft each dish with creativity and care, ready for fast delivery. We prioritize teamwork and efficiency to deliver your favorite meals exactly when you need them - right on time! Together, we work as one family, striving to make your dining experience with Ceylon Aroma truly special.</p>
+            </div>
+            <div class="single-image">
+                <img src="chefs.jpg" alt="Four smiling chefs in uniforms">
+            </div>
+        </div>
+
+    </div>
+
+    <footer class="footer">
+        <div>Ceylon Aroma</div>
+        <div class="social-icons">
+            <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+            <a href="#" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+            <a href="#" aria-label="X (Twitter)"><i class="fab fa-twitter"></i></a>
+            <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+        </div>
+    </footer>
+
+</body>
+</html>
