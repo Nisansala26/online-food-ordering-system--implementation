@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Breakfast Menu</title>
+    <style>
+        body {
+            font-family:Almendra_SC;
+            background-color: black;
+            color: white;
+            padding: 20px;
+      
+
+        }
+
+        /* Top image */
+        .top-image {
+            width: 100%;
+            max-height: 300px; 
+            margin: 0;
+            line-height: 1.5;
+        }
+
+        .menu-container {
+            max-width: 800px;
+            margin: auto;
+           
+        }
+
+        .menu-title {
+            font-family: Forte;
+            text-align: center;
+            font-size: 2.8em;
+            color: white; 
+            letter-spacing: 3px;
+        }
+
+       .menu-header {
+            display: flex;
+            justify-content: flex-end;
+            font-weight: bold;
+            font-size: 1.2em;
+            margin-bottom: 10px;
+            padding-right: 20px;
+        }
+
+        .menu-header span {
+            width: 50px; 
+            text-align: right;
+        }
+
+         .menu-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+            border-bottom: 1px solid white;
+            padding-bottom: 10px;
+        }
+        
+      
+        .item-details {
+            flex-grow: 3;
+            display: flex;
+            align-items: left;
+        }
+
+        .item-image {
+            width: 70px; 
+            height: 70px;
+            margin-right: 15px;
+            object-fit: cover;
+            border-radius: 3px;
+         }
+
+        
+       
+        .item-text-content {
+            flex-grow: 0.5;
+        }
+
+        .item-name {
+            font-size: 1.5em;
+            font-weight: bold;
+            margin: 0;
+        }
+
+        .item-description {
+            font-size: 0.9em;
+            color: white;
+        }
+
+        .item-price {
+            display: flex;
+            justify-content: flex-end;
+            font-size: 1.2em;
+        }
+        .item-price span {
+            width:65px;
+            text-align: left;
+        }
+
+       /* Add button */
+        .add-button {
+            background-color: yellow;
+            color: black;
+            border: none;
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+            font-size: 1.5em;
+            font-weight: bold;
+            cursor: pointer;
+            margin-left: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+          }
+
+          .add-btn:hover {
+            background-color: #FFC107;
+            transform: scale(1.1);
+         }
+
+         .add-btn:active {
+            transform: scale(0.95);
+         }
+    </style>
+</head>
+<body>
+
+<img src="main.png" alt="A collection of breakfast foods" class="top-image">
+
+<div class="menu-container">
+
+    <h1 class="menu-title">BREAKFAST MENU</h1>
+
+    <div class="menu-header">
+        <span style="margin-right: 31px;">S</span>
+        <span style="margin-right: 31px;">M</span>
+        <span style="margin-right:30px;">L</span>
+    </div>
+
+    <div class="menu-item">
+        <div class="item-details">
+            <img src="Rice_and_Curry.jpg" alt="Rice and Curry" class="item-image">
+            <div class="item-text-content">
+                <h2 class="item-name">Rice and curry</h2>
+                <p class="item-description">Steamed rice with spicy chicken curry, dhal and veggies</p>
+                <p>calories  450-650</p>
+            </div>
+        </div>
+        <div class="item-price">
+            <span>400</span>
+            <span>550</span>
+            <span>750</span>
+            <button class="add-button" onclick="addToCart('Rice and curry')">+</button>
+        </div>
+    </div>
+
+    <div class="menu-item">
+        <div class="item-details">
+             <img src="Milk_Rice.jpg" alt="Milk Rice" class="item-image">
+            <div class="item-text-content">
+                <h2 class="item-name">Milk Rice</h2>
+                <p class="item-description">Traditional srilankan dish rice with milk</p>
+                 <p>calories  300-350</p>
+            </div>
+        </div>
+        <div class="item-price">
+            <span>250</span>
+            <span>-</span>
+            <span>-</span>
+            <button class="add-button" onclick="addToCart('Milk Rice')">+</button>
+        </div>
+    </div>
+
+    <div class="menu-item">
+        <div class="item-details">
+            <img src="Pol_Roti.png" alt="Pol Roti" class="item-image">
+            <div class="item-text-content">
+                <h2 class="item-name">Pol Roti</h2>
+                <p class="item-description">Pol roti with grated coconut and flour</p>
+                 <p>calories  200-250</p>
+            </div>
+        </div>
+        <div class="item-price">
+            <span>150</span>
+            <span>-</span>
+            <span>-</span>
+             <button class="add-button" onclick="addToCart('Pol Roti')">+</button>
+        </div>
+    </div>
+
+    <div class="menu-item">
+        <div class="item-details">
+            <img src="Hoppers.jpg" alt="Hoppers" class="item-image">
+            <div class="item-text-content">
+                <h2 class="item-name">Hoppers</h2>
+                <p class="item-description">made from fermented rice flour</p>
+                 <p>calories  70-90</p>
+            </div>
+        </div>
+        <div class="item-price">
+            <span>60-120</span>
+            <span style="width: 66px;"></span> 
+            <span style="width: 66px;"></span> 
+            <button class="add-button" onclick="addToCart('Hoppers')">+</button>
+        </div>
+    </div>
+    
+    <div class="menu-item">
+        <div class="item-details">
+            <img src="Fried_Rice.jpg" alt="Fried Rice" class="item-image">
+            <div class="item-text-content">
+                <h2 class="item-name">Fried Rice</h2>
+                <p class="item-description">Fried rice with scrambled egg and veggies</p>
+                 <p>calories  400-700</p>
+            </div>
+        </div>
+        <div class="item-price">
+            <span>500</span>
+            <span>700</span>
+            <span>900</span>
+            <button class="add-button" onclick="addToCart('Fried Rice')">+</button>
+        </div>
+    </div>
+
+    <div class="menu-item">
+        <div class="item-details">
+            <img src="String_Hoppers.jpg" alt="String Hoppers" class="item-image">
+            <div class="item-text-content">
+                <h2 class="item-name">String Hoppers</h2>
+                <p class="item-description">soft rice flour noodles.</p>
+                 <p>calories  150-250</p>
+            </div>
+        </div>
+        <div class="item-price">
+            <span>180</span>
+            <span>200</span>
+            <span>250</span>
+            <button class="add-button" onclick="addToCart('String Hoppers')">+</button>
+        </div>
+    </div>
+    
+    <div class="menu-item">
+        <div class="item-details">
+            <img src="Short_Eats.jfif" alt="Short Eats" class="item-image">
+            <div class="item-text-content">
+                <h2 class="item-name">Short Eats</h2>
+                <p class="item-description">rolls,pastrys cutlets filled with vegetable and meats</p>
+                 <p>calories  150-200</p>
+            </div>
+        </div>
+        <div class="item-price">
+            <span>70-100</span>
+            <span style="width: 65px;"></span>
+            <span style="width: 65px;"></span>
+             <button class="add-button" onclick="addToCart('Short Eats')">+</button>
+        </div>
+    </div>
+    
+    <div class="menu-item">
+        <div class="item-details">
+            <img src="Sandwiches.jfif" alt="Sandwiches" class="item-image">
+            <div class="item-text-content">
+                <h2 class="item-name">Sandwiches</h2>
+                <p class="item-description">Fresh made with egg & veggies</p>
+                 <p>calories  250-350</p>
+            </div>
+        </div>
+        <div class="item-price">
+            <span>150-200</span>
+            <span style="width: 66px;"></span>
+            <span style="width: 66px;"></span>
+            <button class="add-button" onclick="addToCart('Sandwiches')">+</button>
+        </div>
+    </div>
+    
+    <div class="menu-item">
+        <div class="item-details">
+            <img src="Pancakes.jfif" alt="Pancakes" class="item-image">
+            <div class="item-text-content">
+                <h2 class="item-name">Pancakes</h2>
+                <p class="item-description">Soft rolled pancakes with filled sweet coconut</p>
+                 <p>calories  180-300</p>
+            </div>
+        </div>
+        <div class="item-price">
+            <span>100</span>
+            <span>150</span>
+            <span>200</span>
+            <button class="add-button" onclick="addToCart('Pancakes')">+</button>
+        </div>
+    </div>
+
+    <div class="menu-item">
+        <div class="item-details">
+            <img src="Hot_Beverage.png" alt="Hot Beverage" class="item-image">
+            <div class="item-text-content">
+                <h2 class="item-name">Hot Beverage</h2>
+                <p class="item-description">Beverages with hot</p>
+                 <p>calories  50-150</p>
+            </div>
+        </div>
+        <div class="item-price">
+            <span>200</span>
+            <span>300</span>
+            <span>450</span>
+            <button class="add-button" onclick="addToCart('Hot Beverage')">+</button>
+        </div>
+    </div>
+
+    <div class="menu-item" style="border-bottom: none;"> <div class="item-details">
+            <img src="Cold_Beverage.jpg" alt="Cold Beverage" class="item-image">
+            <div class="item-text-content">
+                <h2 class="item-name">Cold Beverage</h2>
+                <p class="item-description">Fresh beverages with fresh and cold</p>
+                 <p>calories  100-200</p>
+            </div>
+        </div>
+        <div class="item-price">
+            <span>250</span>
+            <span>320</span>
+            <span>400</span>
+            <button class="add-button" onclick="addToCart('Cold Beverage')">+</button>
+        </div>
+    </div>
+</div>
+
+<script>
+    function addToCart(itemName) {
+        alert('Added ' + itemName + ' to cart!');
+    }
+</script>
+
+</body>
+</html>
