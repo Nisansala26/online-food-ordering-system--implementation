@@ -1,5 +1,5 @@
-const plusBtn = document.getElementById("plus");
-const minusBtn = document.getElementById("minus");
+const plusBtn = document.getElementById("increase");
+const minusBtn = document.getElementById("decrease");
 const quantityDisplay = document.getElementById("quantity");
 let quantity = 1;
 
@@ -22,3 +22,4 @@ document.getElementById("orderForm").addEventListener("submit", (e) => {
   quantity = 1;
   quantityDisplay.textContent = quantity;
 });
+
