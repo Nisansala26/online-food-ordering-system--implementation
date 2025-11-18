@@ -1,26 +1,26 @@
-const testimonials = document.querySelectorAll(".testimonial");
-const prev = document.querySelector(".prev");
-const next = document.querySelector(".next");
 
-let index = 0;
 
-function showTestimonial(i) {
-  testimonials.forEach(t => t.classList.remove("active"));
-  testimonials[i].classList.add("active");
-}
+const plusBtn = document.getElementById("increase"); 
+const minusBtn = document.getElementById("decrease"); 
+const quantityDisplay = document.getElementById("quantity");
+let quantity = 1;
 
-next.addEventListener("click", () => {
-  index = (index + 1) % testimonials.length;
-  showTestimonial(index);
+plusBtn.addEventListener("click", () => {
+  quantity++;
+  quantityDisplay.textContent = quantity;
 });
 
-prev.addEventListener("click", () => {
-  index = (index - 1 + testimonials.length) % testimonials.length;
-  showTestimonial(index);
+minusBtn.addEventListener("click", () => {
+  if (quantity > 1) {
+    quantity--;
+    quantityDisplay.textContent = quantity;
+  }
 });
 
-// Auto change every 5 seconds
-setInterval(() => {
-  index = (index + 1) % testimonials.length;
-  showTestimonial(index);
-}, 5000);
+document.getElementById("orderForm").addEventListener("submit", (e) => {
+  e.preventDefault();
+  alert("✅ Thank you for your order! We’ll contact you soon.");
+  e.target.reset();
+  quantity = 1;
+  quantityDisplay.textContent = quantity;
+});
