@@ -4,31 +4,31 @@ document.addEventListener('DOMContentLoaded', () => {
         rice: [
             {
                 name: "Rice and curry",
-                description: "Steamed rice with spicy chicken curry, dhal and veggies",
-                prices: [800, 950, 750], // S, M, L prices
+                description: "Steamed rice with spicy chicken curry, dhal and veggies...  calorie:-450",
+                prices: [750, 800, 950], // S, M, L prices
                 image: "RiceAndCurry.jpg", // Replace with actual image path
             },
             {
                 name: "Chicken Fried Rice",
-                description: "Fried rice with chicken, egg and vegetables",
+                description: "Fried rice with chicken, egg and vegetables .... calorie:-800",
                 prices: [650, 850, 1050],
                 image: "FriedRice.jpg",
             },
             {
                 name: "Seafood Fried Rice",
-                description: "Fried rice with prawns and cuttlefish",
+                description: "Fried rice with prawns and cuttlefish  ... calorie:-900",
                 prices: [750, 950, 1150],
                 image: "PronesRice.jpg",
             },
             {
                 name: "Nasi Goreng",
-                description: "Indonesian style fried egg & satay",
+                description: "Indonesian style fried egg & satay  calorie:-850",
                 prices: [800, 1000, 1300],
                 image: "NasiGoreng.jpg",
             },
             {
                 name: "Egg Fried Rice",
-                description: "Fried rice with scrambled egg and veggies",
+                description: "Fried rice with scrambled egg and veggies ...calorie:-700",
                 prices: [700, 700, 900],
                 image: "EggRice.jpg",
             },
@@ -36,32 +36,32 @@ document.addEventListener('DOMContentLoaded', () => {
         kottu: [
             {
                 name: "Vegetable Kottu",
-                description: "Kottu with assorted vegetables",
+                description: "Kottu with assorted vegetables ... calorie:-800",
                 prices: [550, 750, 950],
                 image: "VegetableKottu.jpg",
             },
             {
                 name: "Egg Kottu",
-                description: "Kottu with egg and vegetables",
+                description: "Kottu with egg and vegetables ... calorie:-850",
                 prices: [550, 750, 950],
                 image: "EggKottu.jpg",
 
             },
             {
                 name: "Chicken Kottu",
-                description: "Kottu with chicken, egg & veggies",
+                description: "Kottu with chicken, egg & veggies ... calorie:-900",
                 prices: [550, 750, 950],
                 image: "ChickenKottu.jpg",
             },
             {
                 name: "Cheese Kottu",
-                description: "Spicy kottu tossed with cheese",
+                description: "Spicy kottu tossed with cheese ... calorie:-850",
                 prices: [550, 750, 950],
                 image: "CheeseKottu.jpg",
             },
              {
                 name: "String Hopper Kottu",
-                description: "Kottu made with string hoppers",
+                description: "Kottu made with string hoppers  ... calorie:-800",
                 prices: [550, 750, 950],
                 image: "StringHopperKottu.jpg",
                 highlight: false
@@ -114,4 +114,5 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Run the renderer
     renderMenu();
+
 });
