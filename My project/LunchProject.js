@@ -3,31 +3,31 @@ document.addEventListener('DOMContentLoaded', () => {
     const lunchMenu = [
         {
             name: "Rice & Curry",
-            description: "Steamed rice with chicken curry, dhal & vegetables",
+            description: "Steamed rice with chicken curry, dhal & vegetables  ... calory:-450",
             prices: [800, 950, 1200],
             image: "RiceCurry.jpg"
         },
         {
             name: "Chicken Fried Rice",
-            description: "Fried rice with chicken, egg & vegetables",
+            description: "Fried rice with chicken, egg & vegetables  ... calory:-850",
             prices: [700, 900, 1100],
             image: "FriedRice.jpg"
         },
         {
             name: "Seafood Fried Rice",
-            description: "Fried rice with prawns & cuttlefish",
+            description: "Fried rice with prawns & cuttlefish  ... calory:-900",
             prices: [850, 1000, 1250],
             image: "PronesRice.jpg"
         },
         {
             name: "Vegetable Kottu",
-            description: "Kottu with assorted vegetables",
+            description: "Kottu with assorted vegetables  ... calory:-800",
             prices: [550, 750, 950],
             image: "VegetableKottu.jpg"
         },
         {
             name: "Chicken Kottu",
-            description: "Kottu with chicken, egg & vegetables",
+            description: "Kottu with chicken, egg & vegetables  ... calory:- 850",
             prices: [650, 850, 1050],
             image: "ChickenKottu.jpg"
         }
@@ -66,3 +66,4 @@ document.addEventListener('DOMContentLoaded', () => {
     renderLunchMenu();
 
 });
+
