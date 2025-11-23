@@ -1,0 +1,190 @@
+/* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #ffffff;
+    color: #333;
+}
+
+/* Header (Navigation Bar) */
+.header {
+    background-color: #1a1a1a;
+    color: white;
+    padding: 10px 50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    font-size: 1.5em;
+    font-weight: bold;
+    color: #ff9900; /* Orange accent */
+}
+
+.logo img {
+    height: 20%; 
+    width: 20%;
+    padding: 0%;
+}
+
+.nav-links {
+    display: flex;
+    align-items: center;
+}
+
+.nav-links a {
+    color: white;
+    text-decoration: none;
+    margin-left: 25px;
+    padding-bottom: 5px;
+    font-size: 1.1em;
+    transition: border-bottom 0.3s;
+}
+
+.nav-links a:hover {
+    border-bottom: 2px solid #ff9900;
+}
+
+.nav-links .contact-link {
+    border-bottom: 2px solid white; /* Highlight the active contact link */
+    font-weight: bold;
+}
+
+.login-btn {
+    background-color: #ff9900;
+    color: #1a1a1a;
+    border: none;
+    padding: 8px 20px;
+    margin-left: 25px;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 3px;
+}
+
+/* Contact Us Title Section */
+.title-section {
+    background-color: #1a1a1a;
+    color: #ff9900;
+    text-align: center;
+    padding: 20px 0;
+}
+
+.title-section h1 {
+    margin: 0;
+    font-size: 3em;
+    font-weight: normal;
+}
+
+/* Main Content Section */
+.contact-content {
+    display: flex;
+    justify-content: center;
+    padding: 60px 50px;
+    gap: 100px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Get in Touch (Form) Section */
+.get-in-touch {
+    flex: 1;
+    max-width: 450px;
+}
+
+.get-in-touch h2, .contact-info h2 {
+    font-size: 1.8em;
+    margin-bottom: 30px;
+    font-weight: bold;
+}
+
+.contact-form input[type="text"],
+.contact-form input[type="email"],
+.contact-form input[type="tel"],
+.contact-form textarea {
+    width: 100%;
+    padding: 15px;
+    margin-bottom: 25px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box; 
+    font-size: 1em;
+}
+
+.contact-form textarea {
+    resize: vertical;
+    min-height: 150px;
+}
+
+.send-message-btn {
+    background-color: #ff9900;
+    color: #1a1a1a;
+    padding: 15px 30px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1.1em;
+    font-weight: bold;
+    transition: background-color 0.3s;
+}
+
+.send-message-btn:hover {
+    background-color: #e68a00;
+}
+
+/* Contact Info Section */
+.contact-info {
+    flex: 1;
+    max-width: 450px;
+}
+
+.info-item {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 25px;
+}
+
+.info-item i {
+    color: #ff9900;
+    font-size: 1.5em;
+    margin-right: 15px;
+    width: 30px; 
+    text-align: center;
+}
+
+.info-item span {
+    font-size: 1.1em;
+    line-height: 1.4;
+}
+
+/* Map Container for Real Map */
+.map-container {
+    margin-top: 30px;
+    border: 1px solid #ccc; 
+    overflow: hidden;
+}
+
+.map-container iframe {
+    width: 100%; 
+}
+
+/* Footer */
+.footer {
+    background-color: #ff9900;
+    padding: 20px 50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: #1a1a1a;
+    font-weight: bold;
+}
+
+.social-icons a {
+    color: #1a1a1a;
+    font-size: 1.5em;
+    margin-left: 15px;
+    text-decoration: none;
+}
