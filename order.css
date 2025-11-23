@@ -16,8 +16,7 @@ body, html {
   align-items: center;
   justify-content: flex-end;
   height: 100vh;
-  background: url('pexels-pixabay-326281.jpg')
-              left center / cover no-repeat;
+  background: url('pexels-pixabay-326281.jpg')left center / cover no-repeat;
   position: relative;
 }
 
