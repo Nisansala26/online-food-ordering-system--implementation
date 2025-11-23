@@ -1,0 +1,118 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    background-color: #e8bb86;
+}
+
+.container {
+    display: flex;
+    height: 100vh;
+}
+
+.image-section {
+    width: 50%;
+}
+
+.image-section img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.form-section {
+    width: 50%;
+    padding: 60px 80px;
+}
+
+h1 {
+    font-size: 40px;
+    margin-bottom: 10px;
+}
+
+.subtitle {
+    margin-bottom: 25px;
+}
+
+.subtitle a {
+    font-weight: bold;
+    color: black;
+    text-decoration: none;
+}
+form {
+    text-align: left;  /* 👈 ADD THIS */
+}
+
+
+/* Smaller Input Fields */
+form input {
+    width: 80%;
+    padding: 10px;
+    border-radius: 20px;
+    border: none;
+    font-size: 16px;
+    background-color: #e4ecff;
+    margin-bottom: 18px;
+    margin-left: 0;     /* 👈 ADD THIS */
+}
+
+
+/* Main Register Button */
+.btn-main {
+    width: 80%;
+    padding: 12px;
+    border-radius: 25px;
+    border: none;
+    background-color: #222;
+    color: white;
+    font-size: 18px;
+    cursor: pointer;
+    margin-bottom: 20px;
+}
+
+/* Social Buttons (Smaller Size) */
+.google-btn,
+.fb-btn {
+    width: 80%;
+    padding: 12px;
+    border-radius: 25px;
+    border: none;
+    background-color: #e8a856;
+    font-size: 16px;
+    cursor: pointer;
+    margin-bottom: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+.g-icon {
+    width: 22px;
+    height: 22px;
+}
+
+.fb-icon {
+    color: #1877F2;  /* Facebook Blue */
+    font-size: 20px;
+}
+.fb-btn {
+    background-color: #e8a856;
+    color:black;
+}
+.fb-btn .fb-icon {
+    color:blue;
+}
+
+/* Icon Sizes */
+.material-icons {
+    font-size: 20px;
+}
+
+.fb-btn i {
+    font-size: 20px;
+}
