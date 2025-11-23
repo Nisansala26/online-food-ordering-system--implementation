@@ -4,206 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ceylon Aroma - Contact Us</title>
+    <link rel="stylesheet" href="contact_styles.css"> 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <style>
-        /* General Styles */
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #ffffff;
-            color: #333;
-        }
-
-        /* Header (Navigation Bar) */
-        .header {
-            background-color: #1a1a1a;
-            color: white;
-            padding: 10px 50px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .logo {
-            display: flex;
-            align-items: center;
-            font-size: 1.5em;
-            font-weight: bold;
-            color: #ff9900; /* Orange accent */
-        }
-
-        .logo img {
-            height: 20%; 
-            width: 20%;
-            padding: 0%;
-        }
-
-        .nav-links {
-            display: flex;
-            align-items: center;
-        }
-
-        .nav-links a {
-            color: white;
-            text-decoration: none;
-            margin-left: 25px;
-            padding-bottom: 5px;
-            font-size: 1.1em;
-            transition: border-bottom 0.3s;
-        }
-
-        .nav-links a:hover {
-            border-bottom: 2px solid #ff9900;
-        }
-
-        .nav-links .contact-link {
-            border-bottom: 2px solid white; /* Highlight the active contact link */
-            font-weight: bold;
-        }
-
-        .login-btn {
-            background-color: #ff9900;
-            color: #1a1a1a;
-            border: none;
-            padding: 8px 20px;
-            margin-left: 25px;
-            text-decoration: none;
-            font-weight: bold;
-            border-radius: 3px;
-        }
-
-        /* Contact Us Title Section */
-        .title-section {
-            background-color: #1a1a1a;
-            color: #ff9900;
-            text-align: center;
-            padding: 20px 0;
-        }
-
-        .title-section h1 {
-            margin: 0;
-            font-size: 3em;
-            font-weight: normal;
-        }
-
-        /* Main Content Section */
-        .contact-content {
-            display: flex;
-            justify-content: center;
-            padding: 60px 50px;
-            gap: 100px;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        /* Get in Touch (Form) Section */
-        .get-in-touch {
-            flex: 1;
-            max-width: 450px;
-        }
-
-        .get-in-touch h2, .contact-info h2 {
-            font-size: 1.8em;
-            margin-bottom: 30px;
-            font-weight: bold;
-        }
-
-        .contact-form input[type="text"],
-        .contact-form input[type="email"],
-        .contact-form textarea {
-            width: 100%;
-            padding: 15px;
-            margin-bottom: 25px;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-            box-sizing: border-box; 
-            font-size: 1em;
-        }
-
-        .contact-form textarea {
-            resize: vertical;
-            min-height: 150px;
-        }
-
-        .send-message-btn {
-            background-color: #ff9900;
-            color: #1a1a1a;
-            padding: 15px 30px;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            font-size: 1.1em;
-            font-weight: bold;
-            transition: background-color 0.3s;
-        }
-
-        .send-message-btn:hover {
-            background-color: #e68a00;
-        }
-
-        /* Contact Info Section */
-        .contact-info {
-            flex: 1;
-            max-width: 450px;
-        }
-
-        .info-item {
-            display: flex;
-            align-items: flex-start; /* Align text to top if wrapped */
-            margin-bottom: 25px;
-        }
-
-        .info-item i {
-            color: #ff9900;
-            font-size: 1.5em;
-            margin-right: 15px;
-            width: 30px; 
-            text-align: center;
-        }
-
-        .info-item span {
-            font-size: 1.1em;
-            line-height: 1.4;
-        }
-
-        /* Map Container for Real Map */
-        .map-container {
-            margin-top: 30px;
-            border: 1px solid #ccc; 
-            overflow: hidden; /* Ensure iframe respects boundary */
-        }
-        
-        /* Ensures the Google Map iframe fits the container */
-        .map-container iframe {
-            width: 100%; 
-            /* Height is set within the iframe tag, but you can override here if needed */
-        }
-
-        /* Footer */
-        .footer {
-            background-color: #ff9900;
-            padding: 20px 50px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            color: #1a1a1a;
-            font-weight: bold;
-        }
-
-        .social-icons a {
-            color: #1a1a1a;
-            font-size: 1.5em;
-            margin-left: 15px;
-            text-decoration: none;
-        }
-    </style>
 </head>
 <body>
 
     <header class="header">
         <div class="logo">
-            <img src="D:\ITUM\online food ordering system\images/logo.png" alt="Ceylon Aroma Logo"> 
+            <img src="images/logo.png" alt="Ceylon Aroma Logo"> 
         </div>
         <nav class="nav-links">
             <a href="#">Home</a>
@@ -219,47 +27,42 @@
     </div>
 
     <div class="contact-content">
-
         <div class="get-in-touch">
             <h2>Get in Touch</h2>
-            <form class="contact-form">
+            <form id="contactForm" class="contact-form">
                 <input type="text" id="name" name="name" placeholder="Name" required>
                 <input type="email" id="email" name="email" placeholder="Email" required>
-                <input type="text" id="phone" name="phone" placeholder="Phone number">
+                <input type="tel" id="phone" name="phone" placeholder="Phone number">
                 <textarea id="message" name="message" placeholder="Message" required></textarea>
-                <button type="submit" class="send-message-btn">Send Message</button>
+                <button type="submit" id="sendBtn" class="send-message-btn">Send Message</button>
             </form>
         </div>
 
         <div class="contact-info">
             <h2>Contact Info</h2>
-
             <div class="info-item">
                 <i class="fas fa-map-marker-alt"></i>
                 <span>123, Galle Road, Colombo, Sri Lanka</span>
             </div>
-
             <div class="info-item">
                 <i class="fas fa-phone-alt"></i>
                 <span>+94 77 123 1230</span>
             </div>
-
             <div class="info-item">
                 <i class="fas fa-envelope"></i>
                 <span>ceylonaroma@gmail.com</span>
             </div>
-
             <div class="map-container">
                 <iframe 
-                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3765.2860719940886!2d79.86277367475637!3d6.856131393142292!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ae25b0788705059%3A0xf594c628ac515c51!2s123%20Galle%20Rd%2C%20Colombo!5e1!3m2!1sen!2slk!4v1761575934504!5m2!1sen!2slk" >
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3765.2860719940886!2d79.86277367475637!3d6.856131393142292!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ae25b0788705059%3A0xf594c628ac515c51!2s123%20Galle%20Rd%2C%20Colombo!5e1!3m2!1sen!2slk!4v1761575934504!5m2!1sen!2slk" 
                     width="100%" 
-                    height="100%" 
+                    height="300" 
                     style="border:0;" 
                     allowfullscreen="" 
                     loading="lazy" 
                     referrerpolicy="no-referrer-when-downgrade">
                 </iframe>
-                </div>
+            </div>
         </div>
     </div>
 
@@ -274,5 +77,53 @@
         </div>
     </footer>
 
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const contactForm = document.getElementById('contactForm');
+            const sendBtn = document.getElementById('sendBtn');
+            
+            // 🚨 Endpoint MUST match the backend server's address and port
+            const BACKEND_URL = 'http://127.0.0.1:5000/submit_contact'; 
+
+            contactForm.addEventListener('submit', async (e) => {
+                e.preventDefault();
+
+                sendBtn.textContent = 'Sending...';
+                sendBtn.disabled = true;
+
+                const data = {
+                    name: document.getElementById('name').value,
+                    email: document.getElementById('email').value,
+                    phone: document.getElementById('phone').value,
+                    message: document.getElementById('message').value
+                };
+
+                try {
+                    const response = await fetch(BACKEND_URL, {
+                        method: 'POST',
+                        headers: { 
+                            'Content-Type': 'application/json' 
+                        },
+                        body: JSON.stringify(data)
+                    });
+
+                    const result = await response.json();
+
+                    if (response.ok && result.status === 'success') {
+                        alert('✅ Success! Your message has been recorded.');
+                        contactForm.reset(); 
+                    } else {
+                        alert('❌ Error sending message: ' + (result.message || 'An unknown server error occurred.'));
+                    }
+                } catch (error) {
+                    console.error('Network Error:', error);
+                    alert('⚠️ Could not connect to the server. Ensure the backend is running.');
+                } finally {
+                    sendBtn.textContent = 'Send Message';
+                    sendBtn.disabled = false;
+                }
+            });
+        });
+    </script>
 </body>
 </html>
