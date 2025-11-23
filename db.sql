@@ -54,15 +54,16 @@ CREATE TABLE orders (
 );
 
 -- 6. Order Details Table (links orders to menu items)
-CREATE TABLE order_details (
-    detail_id INT AUTO_INCREMENT PRIMARY KEY,
-    order_id INT NOT NULL,
-    item_id INT NOT NULL,
+CREATE TABLE orders (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    first_name VARCHAR(100) NOT NULL,
+    last_name VARCHAR(100) NOT NULL,
+    address TEXT NOT NULL,
+    phone VARCHAR(20) NOT NULL,
+    order_item VARCHAR(255) NOT NULL,
     quantity INT NOT NULL,
-    unit_price DECIMAL(10, 2) NOT NULL,
-    subtotal DECIMAL(10, 2) NOT NULL,
-    FOREIGN KEY (order_id) REFERENCES orders(order_id),
-    FOREIGN KEY (item_id) REFERENCES menu_items(item_id)
+    comment TEXT,
+    order_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
 -- 7. Payments Table
@@ -84,4 +85,5 @@ CREATE TABLE contact_inquiries (
     phone VARCHAR(15),
     message TEXT NOT NULL,
     received_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+
 );
