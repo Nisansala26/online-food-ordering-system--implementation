@@ -54,7 +54,7 @@ CREATE TABLE orders (
 );
 
 -- 6. Order Details Table (links orders to menu items)
-CREATE TABLE orders (
+CREATE TABLE order_details (
     id INT AUTO_INCREMENT PRIMARY KEY,
     first_name VARCHAR(100) NOT NULL,
     last_name VARCHAR(100) NOT NULL,
@@ -87,3 +87,4 @@ CREATE TABLE contact_inquiries (
     received_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 
 );
+
