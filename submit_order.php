@@ -27,7 +27,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $comment    = filter_var($_POST['comment'], FILTER_SANITIZE_STRING);
 
     // Prepare and bind the SQL statement
-    $stmt = $conn->prepare("INSERT INTO orders (first_name, last_name, address, phone, order_item, quantity, comment) VALUES (:first_name, :last_name, :address, :phone, :order_item, :quantity, :comment)");
+    $stmt = $conn->prepare("INSERT INTO order_details (first_name, last_name, address, phone, order_item, quantity, comment) VALUES (:first_name, :last_name, :address, :phone, :order_item, :quantity, :comment)");
 
     $stmt->bindParam(':first_name', $first_name);
     $stmt->bindParam(':last_name', $last_name);
@@ -51,3 +51,4 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 // Close connection
 $conn = null;
 ?>
+
