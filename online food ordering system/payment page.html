@@ -4,270 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ceylon Aroma - Payment Methods</title>
+    <link rel="stylesheet" href="payment_styles.css"> 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <style>
-        /* General Styles */
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f5f5f5; /* Light grey background for the main content */
-            color: #333;
-        }
-
-        /* Header (Navigation Bar) - Reused from Contact page */
-        .header {
-            background-color: #1a1a1a;
-            color: white;
-            padding: 10px 50px; /* Adjusted padding */
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .logo {
-            display: flex;
-            align-items: center;
-            font-size: 1.5em;
-            font-weight: bold;
-            color: #ff9900; /* Orange accent */
-        }
-
-        .logo img {
-            height: 20%; 
-            width: 20%;
-            margin-right: 10px;
-        }
-
-        .nav-links {
-            display: flex;
-            align-items: center;
-        }
-
-        .nav-links a {
-            color: white;
-            text-decoration: none;
-            margin-left: 25px;
-            padding-bottom: 5px;
-            font-size: 1.1em;
-            transition: border-bottom 0.3s;
-        }
-
-        .nav-links a:hover {
-            border-bottom: 2px solid #ff9900;
-        }
-
-        .login-btn {
-            background-color: #ff9900;
-            color: #1a1a1a;
-            border: none;
-            padding: 8px 20px;
-            margin-left: 25px;
-            text-decoration: none;
-            font-weight: bold;
-            border-radius: 3px;
-        }
-
-        /* Title Section - Reused from Contact page, adjusted for "Payment Methods" */
-        .title-section {
-            background-color: #1a1a1a;
-            color: #ff9900;
-            text-align: center;
-            padding: 20px 0; /* Adjusted padding */
-        }
-
-        .title-section h1 {
-            margin: 0;
-            font-size: 3em;
-            font-weight: normal;
-        }
-
-        /* Payment Content */
-        .payment-container {
-            max-width: 800px;
-            margin: 50px auto;
-            padding: 40px;
-            background-color: #fff;
-            border-radius: 8px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        }
-
-        .payment-methods {
-            display: flex;
-            justify-content: space-around;
-            flex-wrap: wrap; /* Allow wrapping on smaller screens */
-            gap: 20px;
-            margin-bottom: 40px;
-            padding: 20px;
-            border: 1px solid #ddd; /* Light border around payment options */
-            border-radius: 5px;
-            background-color: #fdfdfd;
-        }
-
-        .payment-method-card {
-            width: 120px; /* Fixed width for payment method logos */
-            height: 80px; /* Fixed height for payment method logos */
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            border: 1px solid #eee;
-            border-radius: 5px;
-            cursor: pointer;
-            overflow: hidden; /* Ensure images don't overflow */
-            transition: transform 0.2s, box-shadow 0.2s;
-        }
-
-        .payment-method-card img {
-            max-width: 100%;
-            max-height: 100%;
-            object-fit: contain; /* Ensure the entire logo is visible */
-        }
-
-        .payment-method-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
-        }
-
-        /* Payment Form */
-        .form-row {
-            display: flex;
-            gap: 30px;
-            margin-bottom: 25px;
-        }
-
-        .form-group {
-            flex: 1;
-        }
-
-        .form-group label {
-            display: block;
-            margin-bottom: 8px;
-            font-weight: bold;
-            color: #555;
-        }
-
-        .form-group input {
-            width: 100%;
-            padding: 12px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            box-sizing: border-box; /* Include padding in element's total width */
-            font-size: 1em;
-        }
-
-        .confirm-btn-container {
-            text-align: center;
-            margin-top: 40px;
-        }
-
-        .confirm-payment-btn {
-            background-color: #ff9900;
-            color: #1a1a1a;
-            padding: 15px 40px;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            font-size: 1.2em;
-            font-weight: bold;
-            transition: background-color 0.3s;
-        }
-
-        .confirm-payment-btn:hover {
-            background-color: #e68a00;
-        }
-
-        /* Footer - Reused from Contact page */
-        .footer {
-            background-color: #ff9900;
-            padding: 20px 50px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            color: #1a1a1a;
-            font-weight: bold;
-            margin-top: 50px; /* Add some space above the footer */
-        }
-
-        .social-icons a {
-            color: #1a1a1a;
-            font-size: 1.5em;
-            margin-left: 15px;
-            text-decoration: none;
-        }
-
-        /* Responsive Adjustments */
-        @media (max-width: 768px) {
-            .header, .footer {
-                padding: 10px 20px;
-            }
-
-            .nav-links a, .login-btn {
-                margin-left: 15px;
-                font-size: 1em;
-            }
-
-            .title-section h1 {
-                font-size: 2.5em;
-            }
-
-            .payment-container {
-                margin: 30px 20px;
-                padding: 25px;
-            }
-
-            .payment-methods {
-                justify-content: center;
-                gap: 15px;
-                padding: 15px;
-            }
-
-            .payment-method-card {
-                width: 100px;
-                height: 70px;
-            }
-
-            .form-row {
-                flex-direction: column;
-                gap: 0; /* Remove gap when stacking */
-            }
-
-            .form-group {
-                margin-bottom: 20px; /* Add space between stacked form groups */
-            }
-
-            .confirm-payment-btn {
-                width: 100%;
-                padding: 12px 20px;
-                font-size: 1.1em;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .header .logo {
-                font-size: 1.2em;
-            }
-            .header .nav-links {
-                flex-wrap: wrap;
-                justify-content: flex-end;
-            }
-            .nav-links a, .login-btn {
-                margin-top: 5px;
-            }
-            .title-section h1 {
-                font-size: 2em;
-            }
-            .payment-method-card {
-                width: 80px;
-                height: 60px;
-            }
-        }
-    </style>
 </head>
 <body>
 
     <header class="header">
         <div class="logo">
-            <img src="D:\ITUM\online food ordering system\images/logo.png" alt="Ceylon Aroma Logo"> 
+            <img src="images/logo.png" alt="Ceylon Aroma Logo"> 
         </div>
         <nav class="nav-links">
             <a href="#">Home</a>
@@ -298,26 +42,26 @@
             </div>
         </div>
 
-        <form class="payment-form">
+        <form id="paymentForm" class="payment-form">
             <div class="form-row">
                 <div class="form-group">
                     <label for="cardNumber">Card Number</label>
-                    <input type="text" id="cardNumber" placeholder="•••• •••• •••• ••••" required>
+                    <input type="text" id="cardNumber" name="cardNumber" placeholder="•••• •••• •••• ••••" required> 
                 </div>
                 <div class="form-group">
                     <label for="expirationDate">Expiration Date</label>
-                    <input type="text" id="expirationDate" placeholder="MM/YY" required>
+                    <input type="text" id="expirationDate" name="expirationDate" placeholder="MM/YY" required>
                 </div>
             </div>
 
             <div class="form-row">
                 <div class="form-group">
                     <label for="cardHolderName">Card Holder's Name</label>
-                    <input type="text" id="cardHolderName" placeholder="Full Name" required>
+                    <input type="text" id="cardHolderName" name="cardHolderName" placeholder="Full Name" required>
                 </div>
                 <div class="form-group">
                     <label for="cvv">CVV</label>
-                    <input type="text" id="cvv" placeholder="•••" required>
+                    <input type="text" id="cvv" name="cvv" placeholder="•••" required>
                 </div>
             </div>
 
@@ -338,6 +82,67 @@
         </div>
     </footer>
 
-</body>
+    <script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const paymentForm = document.getElementById('paymentForm');
+        // Point the URL to your PHP file running on localhost
+        // Use the path structure shown in your file system
+        const BACKEND_ENDPOINT = 'http://localhost/online%20food%20ordering%20system/process_payment.php'; 
 
+        paymentForm.addEventListener('submit', async (event) => {
+            event.preventDefault();
+
+            // ⚠️ SECURITY NOTE: Hardcoded context for testing.
+            const orderContext = {
+                amount: 15.00, // Example: total order amount
+                order_id: 101, // Example: the ID of the order being paid
+                payment_token: 'test_token_success' // Token to pass PHP simulation
+            };
+            
+            // Basic input validation
+            const cardNumber = document.getElementById('cardNumber').value;
+            if (!cardNumber) {
+                alert('Please enter a card number.');
+                return;
+            }
+
+            const confirmButton = document.querySelector('.confirm-payment-btn');
+            confirmButton.textContent = 'Processing...';
+            confirmButton.disabled = true;
+
+            // CORRECT: Use FormData to package the data for PHP's $_POST
+            const payload = new FormData();
+            payload.append('amount', orderContext.amount);
+            payload.append('order_id', orderContext.order_id);
+            payload.append('payment_token', orderContext.payment_token);
+
+            try {
+                // Send data to the PHP backend
+                const response = await fetch(BACKEND_ENDPOINT, {
+                    method: 'POST',
+                    body: payload 
+                });
+
+                // Check if the response status is OK (200-299 range)
+                const result = await response.json();
+
+                if (response.ok && result.status === 'success') {
+                    alert('✅ Payment Successful! Transaction ID: ' + result.transaction_id + '\nOrder ID: ' + orderContext.order_id);
+                    paymentForm.reset();
+                } else {
+                    // This handles validation errors, payment failures, and database errors
+                    alert('❌ Payment Failed: ' + (result.message || 'Unknown server error.'));
+                }
+            } catch (error) {
+                console.error('Network Error:', error);
+                alert('⚠️ Could not connect to the payment server. Ensure XAMPP is running.');
+            } finally {
+                confirmButton.textContent = 'Confirm Payment';
+                confirmButton.disabled = false;
+            }
+        });
+    });
+    </script>
+
+</body>
 </html>
