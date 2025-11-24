@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Order Your Food</title>
+  <link rel="stylesheet" href="order.css" />
+</head>
+
+<body>
+  <section class="order-container">
+    <div class="order-form-box">
+      <h2>Order Your Food</h2>
+    
+      <form id="orderForm" action="submit_order.php" method="POST">
+        <div class="form-row">
+          <div class="form-group">
+            <label for="fname">First Name</label>
+            <input type="text" id="fname" name="first_name" required />
+          </div>
+          <div class="form-group">
+            <label for="lname">Last Name</label>
+            <input type="text" id="lname" name="last_name" required />
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="address">Address</label>
+          <textarea id="address" rows="3" name="address" required></textarea>
+        </div>
+
+        <div class="form-group">
+          <label for="phone">Phone Number</label>
+          <input type="tel" id="phone" name="phone" required />
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="order">Order</label>
+            <input type="text" id="order" name="order_item" required readonly /> 
+          </div>
+          <div class="form-group">
+            <label for="size">Size</label>
+            <input type="text" id="sizeDisplay" required readonly> 
+            <input type="hidden" id="size" name="size" value=""> 
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group quantity-group">
+            <label for="quantity">Quantity</label>
+            <div class="quantity-controls">
+              <button type="button" id="decrease">-</button>
+              <span id="quantity">1</span>
+              <button type="button" id="increase">+</button>
+              <input type="hidden" id="quantityInput" name="quantity" value="1">
+              <input type="hidden" id="basePrice" value="0"> 
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="totalPrice">Total Price (Rs)</label>
+            <input type="text" id="totalPrice" name="total_price" readonly required value="0.00"/>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="comment">Comment</label>
+          <input type="text" id="comment" name="comment" />
+        </div>
+
+        <input type="hidden" id="redirectPage" name="redirect_page" value="Myproject.html">
+
+
+        <button type="submit" class="submit-btn">Submit</button>
+      </form>
+    </div>
+  </section>
+
+  <script>
+// ====================================================================
+// MENU DATA: Combined Prices
+// ====================================================================
+const menuPrices = {
+    "Rice & Curry": [800, 950, 1200],
+    "Chicken Fried Rice": [700, 900, 1100],
+    "Seafood Fried Rice": [850, 1000, 1250],
+    "Vegetable Kottu": [550, 750, 950],
+    "Chicken Kottu": [650, 850, 1050],
+    "Rice and curry": [750, 800, 950], 
+    "Nasi Goreng": [800, 1000, 1300],
+    "Egg Fried Rice": [700, 700, 900],
+    "Egg Kottu": [550, 750, 950],
+    "Cheese Kottu": [550, 750, 950],
+    "String Hopper Kottu": [550, 750, 950]
+};
+
+// ===================================
+// VARIABLES & INITIAL SETUP
+// ===================================
+const urlParams = new URLSearchParams(window.location.search);
+const item = urlParams.get('item');
+const size = urlParams.get('size');
+const priceIndex = urlParams.get('priceIndex');
+
+// 🎯 CRITICAL REDIRECT LOGIC
+const referrer = document.referrer;
+let redirectPage = 'Myproject.html'; // Default is Dinner Menu
+
+if (referrer.includes('LunchProject.html')) {
+    
+    redirectPage = 'LunchProject.html';
+} else if (referrer.includes('Myproject.html')) {
+  
+    redirectPage = 'Myproject.html';
+}
+
+document.getElementById("redirectPage").value = redirectPage;
+
+
+
+const quantityDisplay = document.getElementById("quantity");
+const quantityInput = document.getElementById("quantityInput");
+const totalPriceField = document.getElementById("totalPrice");
+const sizeDisplay = document.getElementById("sizeDisplay");
+const sizeInput = document.getElementById("size");
+
+let quantity = parseInt(quantityInput.value) || 1;
+let currentBasePrice = 0;
+
+function calculateTotalPrice() {
+    let total = currentBasePrice * quantity;
+    totalPriceField.value = total.toFixed(2);
+}
+
+function setInitialData() {
+    if (item) {
+        document.getElementById("order").value = item;
+    }
+    if (size) {
+        sizeDisplay.value = size;
+        sizeInput.value = size; 
+    }
+
+    if (item && priceIndex !== null) {
+        const index = parseInt(priceIndex);
+        const prices = menuPrices[item];
+        
+        if (prices && prices[index] !== undefined) {
+            currentBasePrice = prices[index];
+        } else {
+            currentBasePrice = 0;
+        }
+    }
+    calculateTotalPrice();
+}
+
+document.getElementById("increase").addEventListener("click", () => {
+  quantity++;
+  quantityDisplay.textContent = quantity;
+  quantityInput.value = quantity;
+  calculateTotalPrice();
+});
+
+document.getElementById("decrease").addEventListener("click", () => {
+  if (quantity > 1) {
+    quantity--;
+    quantityDisplay.textContent = quantity;
+    quantityInput.value = quantity;
+    calculateTotalPrice();
+  }
+});
+
+setInitialData();
+  </script>
+</body>
+</html>
