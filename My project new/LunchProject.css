@@ -1,3 +1,4 @@
+/* Reset */
 * {
     box-sizing: border-box;
     margin: 0;
@@ -9,6 +10,7 @@ body {
     font-family: 'Roboto', sans-serif;
     color: #fff; 
 }
+
 
 .menu-container {
     width: 80%;
@@ -22,7 +24,9 @@ body {
     background-image: url('bidfood.jpg'); 
     background-size: cover;
     background-position: center;
+
 }
+
 
 .background-overlay {
     position: absolute;
@@ -30,7 +34,7 @@ body {
     left: 0;
     right: 0;
     bottom: 0;
-    background-color: rgba(0, 0, 0, 0.85); 
+    background-color: rgba(0, 0, 0, 0.85); /* Dark overlay */
     z-index: 1;
     border-radius: 8px;
 }
@@ -40,40 +44,60 @@ body {
     z-index: 2; 
 }
 
+
 .menu-header {
     text-align: center;
-    margin-bottom: 40px;
+    margin-bottom: 30px;
 }
 
+/* 🎯 Title Underline Removed */
 .header-title {
-    font-family: 'Cinzel', serif; 
+    font-family: 'Cinzel', serif;
     font-size: 3em;
-    font-weight: 700;
-    letter-spacing: 5px;
     color: #ffd700; 
-    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+    letter-spacing: 2px;
+    /* border-bottom: 2px solid #ffd700; <-- මෙම පේළිය ඉවත් කර ඇත */
+    padding-bottom: 10px;
+    display: inline-block;
 }
 
+/* Category Headers */
+.menu-category h2 {
+    font-size: 2em;
+    color: #ffd700;
+    margin-bottom: 20px;
+    border-left: 5px solid #ffd700;
+    padding-left: 10px;
+}
+
+.section-divider {
+    border: 0;
+    height: 1px;
+    background-image: linear-gradient(to right, rgba(255, 255, 255, 0), #333, rgba(255, 255, 255, 0));
+    margin: 30px 0;
+}
+
+
+/* --- Price Headers Styling (S, M, L අකුරු) --- */
 .price-headers {
-   
     display: flex;
     justify-content: flex-end;
     gap: 10px; 
     font-weight: bold;
     color: #aaa;
     margin-bottom: 10px;
-    padding-right: 15px; /* Alignment with buttons */
+    padding-right: 15px; 
 }
 
 .price-size {
-    width: 70px; /* Each price header width */
+    width: 70px; /* Header widths match button widths */
     text-align: center;
 }
 
+/* Menu Item Container (to handle flex layout) */
 .menu-item {
-   
     display: flex;
-    justify-content: space-between; 
+    justify-content: space-between;
     align-items: center;
     padding: 15px 0;
     border-bottom: 1px dashed #333;
@@ -81,9 +105,8 @@ body {
 
 .item-details {
     display: flex;
-    align-items: center;
-    /* max-width: calc(100% - 320px); 
-    flex-grow: 1;
+    align-items: flex-start;
+    max-width: calc(100% - 250px); 
 }
 
 .item-image {
@@ -111,15 +134,16 @@ body {
     color: #aaa;
 }
 
+/* --- Prices container (to hold S, M, L buttons) --- */
 .item-prices {
-    
     display: flex;
     gap: 10px; 
     justify-content: flex-end;
     min-width: 250px; 
 }
 
-/* NEW/MODIFIED: Size Button Styling */
+
+/* --- Size Button Styling --- */
 .add-btn {
     background-color: #ffd700;
     color: #000;
@@ -137,5 +161,45 @@ body {
 
 .add-btn:hover {
     background-color: #ffcc00;
-    transform: scale(1.05); 
+    transform: scale(1.05);
+}
+
+
+.menu-item:last-child {
+    border-bottom: none;
+}
+
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .menu-container {
+        width: 100%;
+        margin: 0;
+        padding: 20px;
+        border-radius: 0;
+    }
+
+    .header-title {
+        font-size: 2em;
+    }
+    
+    .item-details {
+        max-width: 60%;
+    }
+
+    /* Wrap prices if needed on small screens */
+    .item-prices {
+        flex-direction: column;
+        align-items: flex-end;
+        min-width: unset;
+    }
+
+    .add-btn, .price-size {
+        width: 60px; /* Smaller buttons on mobile */
+        padding: 6px 8px;
+    }
+    
+    .price-headers {
+        display: none; /* Hide size headers on mobile for simplicity */
+    }
 }
