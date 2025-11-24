@@ -14,11 +14,11 @@
             <img src="images/logo.png" alt="Ceylon Aroma Logo"> 
         </div>
         <nav class="nav-links">
-            <a href="#">Home</a>
-            <a href="#">Menu</a>
-            <a href="#">About</a>
+            <a href="index.html">Home</a>
+             
+            <a href="about usn.html">About</a>
             <a href="Contact us page.html">Contact</a>
-            <a href="#" class="login-btn">Login</a>
+            <a href="login.html" class="login-btn">Login</a>
         </nav>
     </header>
 
@@ -85,21 +85,20 @@
     <script>
     document.addEventListener('DOMContentLoaded', () => {
         const paymentForm = document.getElementById('paymentForm');
-        // Point the URL to your PHP file running on localhost
-        // Use the path structure shown in your file system
+        // 🚨 IMPORTANT: Ensure this path matches the URL shown in your browser when accessing the PHP file.
         const BACKEND_ENDPOINT = 'http://localhost/online%20food%20ordering%20system/process_payment.php'; 
 
         paymentForm.addEventListener('submit', async (event) => {
             event.preventDefault();
 
-            // ⚠️ SECURITY NOTE: Hardcoded context for testing.
+            // --- SIMULATED ORDER DATA (To pass to PHP) ---
             const orderContext = {
-                amount: 15.00, // Example: total order amount
-                order_id: 101, // Example: the ID of the order being paid
+                amount: 15.00, 
+                order_id: 101, 
                 payment_token: 'test_token_success' // Token to pass PHP simulation
             };
             
-            // Basic input validation
+            // Basic input validation (optional, as PHP handles the critical validation)
             const cardNumber = document.getElementById('cardNumber').value;
             if (!cardNumber) {
                 alert('Please enter a card number.');
@@ -110,7 +109,7 @@
             confirmButton.textContent = 'Processing...';
             confirmButton.disabled = true;
 
-            // CORRECT: Use FormData to package the data for PHP's $_POST
+            // Use FormData to package the data for PHP's $_POST
             const payload = new FormData();
             payload.append('amount', orderContext.amount);
             payload.append('order_id', orderContext.order_id);
@@ -123,18 +122,19 @@
                     body: payload 
                 });
 
-                // Check if the response status is OK (200-299 range)
+                // Handle the JSON response
                 const result = await response.json();
 
                 if (response.ok && result.status === 'success') {
                     alert('✅ Payment Successful! Transaction ID: ' + result.transaction_id + '\nOrder ID: ' + orderContext.order_id);
                     paymentForm.reset();
                 } else {
-                    // This handles validation errors, payment failures, and database errors
+                    // This handles payment failures, validation errors, and DB errors
                     alert('❌ Payment Failed: ' + (result.message || 'Unknown server error.'));
                 }
             } catch (error) {
                 console.error('Network Error:', error);
+                // This alert handles the common XAMPP connection failure (the error you were seeing)
                 alert('⚠️ Could not connect to the payment server. Ensure XAMPP is running.');
             } finally {
                 confirmButton.textContent = 'Confirm Payment';
